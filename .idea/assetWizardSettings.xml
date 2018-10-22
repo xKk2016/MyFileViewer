@@ -33,10 +33,10 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="backgroundLayerName" value="ic_launcher_background" />
-                                      <entry key="foregroundImage" value="C:\Users\KK\Downloads\folder1.jpg" />
-                                      <entry key="foregroundLayerName" value="ic_launcher_foreground" />
-                                      <entry key="outputName" value="folder" />
+                                      <entry key="backgroundLayerName" value="ic_launcher_background1" />
+                                      <entry key="foregroundImage" value="C:\Users\KK\Downloads\file.jpg" />
+                                      <entry key="foregroundLayerName" value="ic_launcher_foreground1" />
+                                      <entry key="outputName" value="file" />
                                     </map>
                                   </option>
                                 </PersistentState>

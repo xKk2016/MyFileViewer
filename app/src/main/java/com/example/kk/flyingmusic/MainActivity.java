@@ -2,9 +2,12 @@ package com.example.kk.flyingmusic;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Environment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -27,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     ListView fileList;
     TextView path;
-    Button parent;
+//    Button parent;
 
     //记录当前路径下 的所有文件的数组
     File currentParent;
@@ -40,14 +43,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         fileList = findViewById(R.id.filelist);
         path = findViewById(R.id.path);
-        parent = findViewById(R.id.parent);
 
 
 
-        File root = new File("/mnt");
+
+        File root = this.getApplicationContext().getFilesDir();
+        Log.i(TAG, "onCreate: toor"+root.toString());
         if (root.exists()) {
             currentParent = root;
             currentFiles = root.listFiles();//获取root目录下的所有文件
+            Log.i(TAG, "onCreate: "+currentFiles.toString());
 
             inflateListView(currentFiles);
         }
@@ -77,18 +82,27 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-        parent.setOnClickListener(new View.OnClickListener() {
+        fileList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public void onClick(View v) {
-                onbey();
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+                return false;
             }
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return true;
+    }
+
     private void onbey() {
         try {
-            if (!"/mnt".equals(currentParent.getCanonicalPath())) {
+            Log.i(TAG, "onbey: this"+String.valueOf(this.getApplicationContext().getFilesDir()));
+            Log.i(TAG, "onbey:currentParent "+currentParent.getCanonicalPath());
+            if (!String.valueOf(this.getApplicationContext().getFilesDir()).equals(currentParent.getCanonicalPath())) {
                 //获取上一层目录
                 currentParent = currentParent.getParentFile();
                 //列出当前目录下的所有文件
@@ -131,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                 Map<String, Object> listItem = new HashMap<String, Object>();
                 //如果当前File是文件夹，使用folder图标；否则使用file图标
                 if (files[i].isDirectory()) listItem.put("icon", R.mipmap.folder);
-                    //else if(files[i].isFi)
+                    //else if(files[i].isFile)
                 else listItem.put("icon", R.mipmap.file);
                 listItem.put("fileName", files[i].getName());
                 listItems.add(listItem);

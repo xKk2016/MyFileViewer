@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Flyingmusic</string>
     <string name="no_file">No file</string>
+    <string name="menu_root">所有文件</string>
+    <string name="DOC">文档</string>
+    <string name="pic">图片</string>
+    <string name="music">音乐</string>
+    <string name="newfolder">新建文件夹</string>
 </resources>

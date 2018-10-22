@@ -11,9 +11,23 @@
         android:id="@+id/icon" />
 
     <TextView
+        android:id="@+id/filename"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="testfilename"
-        android:id="@+id/filename" />
+        android:layout_weight="5"
+        android:text="testfilename" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_weight="1"
+        android:clickable="false"
+        android:focusable="false"
+        android:text=""
+        android:layoutDirection="rtl"
+        android:visibility="invisible" />
+
 
 </LinearLayout>
