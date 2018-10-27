@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".CopyActivity"
     android:orientation="vertical">
 
     <LinearLayout
@@ -13,14 +13,14 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/path"
+            android:id="@+id/path_copy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="" />
 
         <ListView
-            android:id="@+id/filelist"
+            android:id="@+id/filelist_copy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:divider="#000"
@@ -29,7 +29,7 @@
         </ListView>
 
         <TextView
-            android:id="@+id/nofile"
+            android:id="@+id/nofile_cpoy"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -38,21 +38,21 @@
 
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayout_copy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:visibility="invisible" >
+        android:visibility="visible" >
 
         <Button
-            android:id="@+id/bt_cancel"
+            android:id="@+id/bt_cancel_copy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="取消选择" />
 
         <TextView
-            android:id="@+id/tv_sum"
+            android:id="@+id/tv_sum_copy"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -60,15 +60,10 @@
             android:text="选择" />
 
         <Button
-            android:id="@+id/bt_delete"
+            android:id="@+id/bt_copy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="删除" />
-        <Button
-            android:id="@+id/bt_copy2other"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="复制" />
+            android:text="复制到当前路径" />
     </LinearLayout>
 
 </RelativeLayout>
